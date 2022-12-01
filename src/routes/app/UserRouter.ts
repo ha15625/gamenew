@@ -12,7 +12,6 @@ class UserRouter {
   }
 
   public post() {
-    
     this.router.post(
       "/login",
       UserValidation.loginValidation,
@@ -23,10 +22,8 @@ class UserRouter {
       UserValidation.signUpValidation,
       UserController.signUp
     );
-    
   }
-  public get() {
-  }
+  public get() {}
 }
 
 export default new UserRouter().router;

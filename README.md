@@ -2,10 +2,11 @@
 
 1. Implement a Rest API for steps tracking using Node JS.
 2. Implement a Rest API for the following scenario
-    i. on entering the phone number check if the user is new or existing
-    ii. if new should go to the signup process if existing then should navigate to dashboard.
+   i. on entering the phone number check if the user is new or existing
+   ii. if new should go to the signup process if existing then should navigate to dashboard.
 
 # Description
+
 In this , task I have implement login and signup api with tracking execution time of any negative and positive response as well as track the number of times any apis hit on negative and positive response , if user credential is correct than give response to go on dashboard route and when it incorrect then redirect to on sign up page
 
 ## Tech Stack
@@ -24,13 +25,13 @@ To run this project, you will need to add the following environment variables to
 Clone the project
 
 ```bash
-   git clone https://github.com/afreen-roohi/TargetIQ.git
+   git clone https://github.com/af917/technical.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd TARGETIQ
+  cd technical
 ```
 
 Install dependencies
@@ -49,5 +50,4 @@ Start the server
 
 ## Authors
 
-- [@afreenroohi](https://github.com/afreen-roohi)
-
+- [@afreenroohi](https://github.com/af917/technical.git)

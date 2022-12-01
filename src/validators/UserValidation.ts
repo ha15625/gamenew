@@ -7,28 +7,44 @@ import { validate } from "../helpers/ValidationHelper";
 import { ReqInterface, ResInterface } from "../interfaces/RequestInterface";
 
 class UserValidation {
-    static async loginValidation(req: ReqInterface, res: ResInterface, next: NextFunction) {
-        const schema = Joi.object().keys({
-            phoneNumber: Joi.string().required(),
-            countryCode:Joi.string().required(),
-            name: Joi.string().optional(),
-        })
-        const isValid = await validate(req.body, res, schema);
-        if (isValid) {
-            next();
-        }
+  static async loginValidation(
+    req: ReqInterface,
+    res: ResInterface,
+    next: NextFunction
+  ) {
+    const schema = Joi.object().keys({
+      phoneNumber: Joi.string()
+        .required()
+        .pattern(/^[0-9]+$/)
+        .max(15)
+        .min(9),
+      countryCode: Joi.string().required(),
+      name: Joi.string().optional(),
+    });
+    const isValid = await validate(req.body, res, schema);
+    if (isValid) {
+      next();
     }
-    static async signUpValidation(req: ReqInterface, res: ResInterface, next: NextFunction) {
-        const schema = Joi.object().keys({
-            phoneNumber: Joi.string().required(),
-            countryCode:Joi.string().required(),
-            name: Joi.string().required(),
-        })
-        const isValid = await validate(req.body, res, schema);
-        if (isValid) {
-            next();
-        }
+  }
+  static async signUpValidation(
+    req: ReqInterface,
+    res: ResInterface,
+    next: NextFunction
+  ) {
+    const schema = Joi.object().keys({
+      phoneNumber: Joi.string()
+        .required()
+        .pattern(/^[0-9]+$/)
+        .max(15)
+        .min(9),
+      countryCode: Joi.string().required(),
+      name: Joi.string().required(),
+    });
+    const isValid = await validate(req.body, res, schema);
+    if (isValid) {
+      next();
     }
+  }
 }
 
 export default UserValidation;
