@@ -1,12 +1,13 @@
 {
 	"info": {
-		"_postman_id": "416e0757-9410-4bc8-a333-6e8c1612f0fb",
+		"_postman_id": "525eb31c-a337-4547-bee1-892caf9401a0",
 		"name": "Technical",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20989464"
 	},
 	"item": [
 		{
-			"name": "Post",
+			"name": "User",
 			"item": [
 				{
 					"name": "Login",
@@ -69,6 +70,319 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "StepsTracking",
+			"item": [
+				{
+					"name": "get-data-source",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/app/google-api/get-data-source",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"app",
+								"google-api",
+								"get-data-source"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-data-source-response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/app/google-api/get-data-source",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"app",
+										"google-api",
+										"get-data-source"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1113"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"459-N9rbUAmnHP+2kJ3cPnBRm6vCxp0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 19:19:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"statusText\": \"SUCCESS\",\n    \"message\": \"Get data source List!\",\n    \"data\": {\n        \"dataSource\": [\n            {\n                \"dataStreamId\": \"derived:com.google.step_count.delta:407408718192:Example Manufacturer:ExampleTablet:1000001:MyDataSource\",\n                \"dataStreamName\": \"MyDataSource\",\n                \"type\": \"derived\",\n                \"dataType\": {\n                    \"name\": \"com.google.step_count.delta\",\n                    \"field\": [\n                        {\n                            \"name\": \"steps\",\n                            \"format\": \"integer\"\n                        }\n                    ]\n                },\n                \"device\": {\n                    \"uid\": \"1000001\",\n                    \"type\": \"tablet\",\n                    \"version\": \"1\",\n                    \"model\": \"ExampleTablet\",\n                    \"manufacturer\": \"Example Manufacturer\"\n                },\n                \"application\": {\n                    \"version\": \"1\",\n                    \"detailsUrl\": \"http://example.com\",\n                    \"name\": \"Foo Example App\"\n                },\n                \"dataQualityStandard\": []\n            },\n            {\n                \"dataStreamId\": \"derived:com.google.step_count.delta:407408718192:Example Manufacturer:ExampleTablet:1000001:test\",\n                \"name\": \"test\",\n                \"dataStreamName\": \"test\",\n                \"type\": \"derived\",\n                \"dataType\": {\n                    \"name\": \"com.google.step_count.delta\",\n                    \"field\": [\n                        {\n                            \"name\": \"steps\",\n                            \"format\": \"integer\"\n                        }\n                    ]\n                },\n                \"device\": {\n                    \"uid\": \"1000001\",\n                    \"type\": \"tablet\",\n                    \"version\": \"1.0\",\n                    \"model\": \"ExampleTablet\",\n                    \"manufacturer\": \"Example Manufacturer\"\n                },\n                \"application\": {\n                    \"version\": \"1\",\n                    \"detailsUrl\": \"http://example.com\",\n                    \"name\": \"Foo Example App\"\n                },\n                \"dataQualityStandard\": []\n            }\n        ]\n    },\n    \"exeTime\": 670\n}"
+						}
+					]
+				},
+				{
+					"name": "create-data-source",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":{\r\n  \"dataStreamName\": \"MyFirstDataSource\",\r\n  \"type\": \"derived\",\r\n  \"application\": {\r\n    \"detailsUrl\": \"http://example.com\",\r\n    \"name\": \"Foo Example App\",\r\n    \"version\": \"1\"\r\n  },\r\n  \"dataType\": {\r\n    \"field\": [\r\n      {\r\n        \"name\": \"steps\",\r\n        \"format\": \"integer\"\r\n      }\r\n    ],\r\n    \"name\": \"com.google.step_count.delta\"\r\n  },\r\n  \"device\": {\r\n    \"manufacturer\": \"Example Manufacturer\",\r\n    \"model\": \"ExampleTablet\",\r\n    \"type\": \"tablet\",\r\n    \"uid\": \"1000001\",\r\n    \"version\": \"1.0\"\r\n  }\r\n}\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/app/google-api/create-data-source",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"app",
+								"google-api",
+								"create-data-source"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create-data-source-response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\":{\r\n  \"dataStreamName\": \"MyFirstDataSource\",\r\n  \"type\": \"derived\",\r\n  \"application\": {\r\n    \"detailsUrl\": \"http://example.com\",\r\n    \"name\": \"Foo Example App\",\r\n    \"version\": \"1\"\r\n  },\r\n  \"dataType\": {\r\n    \"field\": [\r\n      {\r\n        \"name\": \"steps\",\r\n        \"format\": \"integer\"\r\n      }\r\n    ],\r\n    \"name\": \"com.google.step_count.delta\"\r\n  },\r\n  \"device\": {\r\n    \"manufacturer\": \"Example Manufacturer\",\r\n    \"model\": \"ExampleTablet\",\r\n    \"type\": \"tablet\",\r\n    \"uid\": \"1000001\",\r\n    \"version\": \"1.0\"\r\n  }\r\n}\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/app/google-api/create-data-source",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"app",
+										"google-api",
+										"create-data-source"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "618"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26a-HE48WQSjIBjFKUtFNU184R0UegQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 19:22:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"statusText\": \"SUCCESS\",\n    \"message\": \"Data source created successfully!\",\n    \"data\": {\n        \"dataStreamId\": \"derived:com.google.step_count.delta:407408718192:Example Manufacturer:ExampleTablet:1000001:MyFirstDataSource\",\n        \"dataStreamName\": \"MyFirstDataSource\",\n        \"type\": \"derived\",\n        \"dataType\": {\n            \"name\": \"com.google.step_count.delta\",\n            \"field\": [\n                {\n                    \"name\": \"steps\",\n                    \"format\": \"integer\"\n                }\n            ]\n        },\n        \"device\": {\n            \"uid\": \"1000001\",\n            \"type\": \"tablet\",\n            \"version\": \"1.0\",\n            \"model\": \"ExampleTablet\",\n            \"manufacturer\": \"Example Manufacturer\"\n        },\n        \"application\": {\n            \"version\": \"1\",\n            \"detailsUrl\": \"http://example.com\",\n            \"name\": \"Foo Example App\"\n        },\n        \"dataQualityStandard\": []\n    },\n    \"exeTime\": 640\n}"
+						}
+					]
+				},
+				{
+					"name": "aggregate-data-source",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":{\r\n  \"aggregateBy\": [{\r\n    \"dataSourceId\":\r\n      \"derived:com.google.step_count.delta:407408718192:Example Manufacturer:ExampleTablet:1000001:MyDataSource\"\r\n  }],\r\n  \"bucketByTime\": { \"durationMillis\": 86400000 },\r\n  \"startTimeMillis\": 1454284800000,\r\n  \"endTimeMillis\": 1455062400000\r\n    }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/app/google-api/aggregate-data-source",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"app",
+								"google-api",
+								"aggregate-data-source"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "aggregate-data-source-response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\":{\r\n  \"aggregateBy\": [{\r\n    \"dataSourceId\":\r\n      \"derived:com.google.step_count.delta:407408718192:Example Manufacturer:ExampleTablet:1000001:MyDataSource\"\r\n  }],\r\n  \"bucketByTime\": { \"durationMillis\": 86400000 },\r\n  \"startTimeMillis\": 1454284800000,\r\n  \"endTimeMillis\": 1455062400000\r\n    }\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/app/google-api/aggregate-data-source",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"app",
+										"google-api",
+										"aggregate-data-source"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1758"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6de-FIOFrIhhRceflMXvw6sbCBKc+Tc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 19:25:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"statusText\": \"SUCCESS\",\n    \"message\": \"data source used to show step count in the Google Fit!\",\n    \"data\": {\n        \"bucket\": [\n            {\n                \"startTimeMillis\": \"1454284800000\",\n                \"endTimeMillis\": \"1454371200000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            },\n            {\n                \"startTimeMillis\": \"1454371200000\",\n                \"endTimeMillis\": \"1454457600000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            },\n            {\n                \"startTimeMillis\": \"1454457600000\",\n                \"endTimeMillis\": \"1454544000000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            },\n            {\n                \"startTimeMillis\": \"1454544000000\",\n                \"endTimeMillis\": \"1454630400000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            },\n            {\n                \"startTimeMillis\": \"1454630400000\",\n                \"endTimeMillis\": \"1454716800000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            },\n            {\n                \"startTimeMillis\": \"1454716800000\",\n                \"endTimeMillis\": \"1454803200000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            },\n            {\n                \"startTimeMillis\": \"1454803200000\",\n                \"endTimeMillis\": \"1454889600000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            },\n            {\n                \"startTimeMillis\": \"1454889600000\",\n                \"endTimeMillis\": \"1454976000000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            },\n            {\n                \"startTimeMillis\": \"1454976000000\",\n                \"endTimeMillis\": \"1455062400000\",\n                \"dataset\": [\n                    {\n                        \"dataSourceId\": \"derived:com.google.step_count.delta:com.google.android.gms:aggregated\",\n                        \"point\": []\n                    }\n                ]\n            }\n        ]\n    },\n    \"exeTime\": 960\n}"
+						}
+					]
 				}
 			]
 		}

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import GoogleFitRouter from "./app/GoogleFitRouter";
 import UserRouter from "./app/UserRouter";
 
 class Routes {
@@ -10,6 +11,7 @@ class Routes {
 
   app() {
     this.router.use('/app/user', UserRouter);
+    this.router.use('/app/google-api',GoogleFitRouter)
   }
 
 }
