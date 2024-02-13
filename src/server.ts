@@ -6,6 +6,7 @@ import * as cors from 'cors';
 import { env } from './environments/Env';
 import Routes from './routes/Routes';
 import { NextFunction } from "express"
+import path = require('path');
 
 export class Server {
   public app: express.Application = express();
@@ -57,6 +58,10 @@ export class Server {
       console.log('request-body', req.body);
       next();
     });
+    this.app.use(
+      "/api-doc",
+      express.static(path.resolve(process.cwd() + "/apidoc"))
+    );
     this.app.use('/api', Routes)
     this.app.use('/test', (req, res, next) => {
       res.status(200).json({ msg: "Hello Bro" })

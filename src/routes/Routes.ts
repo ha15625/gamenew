@@ -1,6 +1,6 @@
 import { Router } from "express";
-import GoogleFitRouter from "./app/GoogleFitRouter";
 import UserRouter from "./app/UserRouter";
+import TournamentRouter from "./app/TournamentRouter";
 
 class Routes {
   public router: Router;
@@ -11,7 +11,7 @@ class Routes {
 
   app() {
     this.router.use('/app/user', UserRouter);
-    this.router.use('/app/google-api',GoogleFitRouter)
+    this.router.use('/app/tournament', TournamentRouter);
   }
 
 }
