@@ -26,13 +26,6 @@ class TouranamentController {
           */
     static getTouranament(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield Tournament_1.default.create({
-                time: "30",
-                title: "First FGame",
-                noOfPlayer: "4",
-                date: new Date(),
-                amount: 10
-            });
             try {
                 const options = {
                     page: req.query.page || 1,

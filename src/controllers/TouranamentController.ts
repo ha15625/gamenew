@@ -15,13 +15,7 @@ export class TouranamentController {
 
          */
   static async getTouranament(req, res, next) {
-    await Tournament.create({
-      time: "30",
-    title:"First FGame",
-    noOfPlayer:"4",
-    date:new Date(),
-    amount:10
-    })
+    
     try {
       const options = {
         page: req.query.page || 1,
