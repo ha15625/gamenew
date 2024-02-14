@@ -12,6 +12,9 @@ const Tournament= new Schema({
     title:{
         type:String
     },
+    maxPlayers: {
+        type: String,
+    },
     noOfPlayer:{
         type:String
     },
@@ -20,8 +23,30 @@ const Tournament= new Schema({
     },
     amount:{
         type:Number
+    },
+    status: {
+        type: String,
+        enum: ["Registering","Proceeding","Spectator", "Final-Registration"],
+        default: "Registering"
+    },
+    totalRewards: {
+        type: String,
+    },
+    tablesCount: {
+      type: String,
+    },
+    firstPrize: {
+        type: String
+    },
+    secondPrize: {
+        type: String
+    },
+    thirdPrize: {
+        type: String
+    },
+    chips: {
+        type: String
     }
-
 }, {
     timestamps: {
         createdAt: 'created_at',
