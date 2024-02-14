@@ -9,6 +9,7 @@ class TournamentRouter {
         this.get();
     }
     post() {
+        this.router.post("/create-tournament", TouranamentController_1.TouranamentController.createTournament);
     }
     get() {
         this.router.get("/get-tournament", TouranamentController_1.TouranamentController.getTouranament);

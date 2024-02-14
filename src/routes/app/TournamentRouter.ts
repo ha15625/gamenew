@@ -11,7 +11,7 @@ class TournamentRouter {
   }
 
   public post() {
-    
+    this.router.post("/create-tournament", TouranamentController.createTournament)
   }
   public get() {
     this.router.get(

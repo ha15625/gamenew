@@ -47,9 +47,11 @@ class TouranamentController {
                     {
                         $match: filteredQuery,
                     },
-                    { $addFields: {
+                    {
+                        $addFields: {
                             blindsData: blinds
-                        } },
+                        }
+                    },
                     {
                         $sort: {
                             created_at: -1,
@@ -72,7 +74,7 @@ class TouranamentController {
           * @apiGroup App
           * @apiSuccessExample {json} Success-Response:
           *{"status":200,"statusText":"SUCCESS","message":"Get Successfully","data":{"_id":"65cbe04025a1a537ac968257","time":"30","title":"First FGame","noOfPlayer":"4","date":"Wed Feb 14 2024 03:03:52 GMT+0530 (India Standard Time)","amount":10,"created_at":"2024-02-13T21:33:52.281Z","updated_at":"2024-02-13T21:33:52.281Z","__v":0},"exeTime":49}
- 
+  
           */
     static getTouranamentDetails(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -83,6 +85,23 @@ class TouranamentController {
             });
             getArtical["_doc"].blindsData = blinds;
             return ResponseHelper_1.default.ok(res, "SUCCESS", "Get Successfully", getArtical, startTime);
+        });
+    }
+    static createTournament(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let { title, date, status, time, amount, totalRewards, firstPrize, secondPrize, thirdPrize, bot, chips, commission, rounds } = req.body;
+                let data = { title, date, status, time, amount, totalRewards, firstPrize, secondPrize, thirdPrize, bot, chips, commission };
+                if (rounds) {
+                    data['tablesCount'] = Math.pow(3, (rounds - 1));
+                    data['maxPlayers'] = data['tablesCount'] * 9;
+                }
+                let doc = yield new Tournament_1.default(data).save();
+                return ResponseHelper_1.default.created(res, "CREATED", "Created Successfully", doc);
+            }
+            catch (error) {
+                next(error);
+            }
         });
     }
 }

@@ -48,6 +48,13 @@ const Tournament = new Schema({
     },
     chips: {
         type: String
+    },
+    bot: {
+        type: Boolean,
+        default: false
+    },
+    commission: {
+        type: String
     }
 }, {
     timestamps: {
