@@ -148,7 +148,7 @@ class TouranamentController {
             try {
                 let { tournament, username, userId } = req.body;
                 let data = { tournament, username, userId };
-                let exists = yield Registration_1.default.findOne({ $or: [{ username: username }, { userId: userId }] });
+                let exists = yield Registration_1.default.findOne({ tournament: tournament, $or: [{ username: username }, { userId: userId }] });
                 if (exists) {
                     return ResponseHelper_1.default.badRequest(res, "CONFLICT", "User already registered", {}, startTime);
                 }

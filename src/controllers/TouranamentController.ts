@@ -145,7 +145,7 @@ export class TouranamentController {
       let { tournament, username, userId } = req.body;
 
       let data = { tournament, username, userId }
-      let exists = await Registration.findOne({ $or: [{ username: username }, { userId: userId }] });
+      let exists = await Registration.findOne({tournament: tournament,  $or: [{ username: username }, { userId: userId }] });
       if (exists) {
         return _RS.badRequest(res, "CONFLICT", "User already registered", {}, startTime)
       }
