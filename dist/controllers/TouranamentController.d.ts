@@ -51,4 +51,15 @@ export declare class TouranamentController {
        *{"status":201,"statusText":"CREATED","message":"Created Successfully","data":{"_id":"65cd0761f2236cc7691aac1d","tournament":"65cc9401d50ffeb93cb34ba6","username":"Bruce Wayne","userId":"345","created_at":"2024-02-14T18:33:05.252Z","updated_at":"2024-02-14T18:33:05.252Z","__v":0}}
        */
     static joinTournament(req: any, res: any, next: any): Promise<void>;
+    /**
+       * @api {post} /api/app/tournament/get-tournament-by-player/:playerId get-tournament-by-player
+       * @apiVersion 1.0.0
+       * @apiName get-tournament-by-player
+       * @apiGroup App
+       * @apiParams {String} playerId playerId.
+       * @apiSuccessExample {json} Success-Response:
+       *{"status":200,"statusText":"SUCCESS","message":"Get List Successfully","data":{"data":[{"_id":"65cd0761f2236cc7691aac1d","tournament":{"status":"Registering","bot":true,"_id":"65cc9401d50ffeb93cb34ba6","title":"Fifth Game","date":"","time":"12:00","amount":10,"totalRewards":"80","firstPrize":"First Prize","secondPrize":"Second Prize","thirdPrize":"Third Prize","chips":"","commission":"","tablesCount":"3","maxPlayers":"27","created_at":"2024-02-14T10:20:49.790Z","updated_at":"2024-02-14T10:20:49.790Z","__v":0},"username":"Bruce Wayne","userId":"345","created_at":"2024-02-14T18:33:05.252Z","updated_at":"2024-02-14T18:33:05.252Z","__v":0},{"_id":"65cd0e935dbab5ce36b25a0e","tournament":{"status":"Registering","bot":true,"_id":"65cd08b9c142dbc974c3dd94","title":"Fifth Game","date":"","time":"12:00","amount":10,"totalRewards":"80","firstPrize":"First Prize","secondPrize":"Second Prize","thirdPrize":"Third Prize","chips":"","commission":"","tablesCount":"3","maxPlayers":"27","created_at":"2024-02-14T18:38:49.344Z","updated_at":"2024-02-14T18:38:49.344Z","__v":0},"username":"Chris Evans","userId":"345","created_at":"2024-02-14T19:03:47.961Z","updated_at":"2024-02-14T19:03:47.961Z","__v":0}]},"exeTime":0}
+  
+       */
+    static getPlayerTournament(req: any, res: any, next: any): Promise<void>;
 }

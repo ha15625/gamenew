@@ -24,6 +24,10 @@ class TournamentRouter {
       "/get-tournament-detail/:id",
       TouranamentController.getTouranamentDetails
     );
+    this.router.get(
+      "/get-tournament-player/:playerId",
+      TouranamentController.getPlayerTournament
+    );
   }
 }
 

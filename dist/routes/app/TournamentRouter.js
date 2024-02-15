@@ -15,6 +15,7 @@ class TournamentRouter {
     get() {
         this.router.get("/get-tournament", TouranamentController_1.TouranamentController.getTouranament);
         this.router.get("/get-tournament-detail/:id", TouranamentController_1.TouranamentController.getTouranamentDetails);
+        this.router.get("/get-tournament-player/:playerId", TouranamentController_1.TouranamentController.getPlayerTournament);
     }
 }
 exports.default = new TournamentRouter().router;
